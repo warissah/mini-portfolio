@@ -123,7 +123,7 @@ nav a:hover {
   padding: clamp(28px, 5vw, 78px);
   border-radius: 0 0 56px 56px;
   background-color: #3b2925;
-  background: url('about-bg.jpg');
+  background: url("/about-bg.jpg") center / cover no-repeat;
   scroll-margin-top: 76px;
 }
 
