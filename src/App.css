@@ -1322,3 +1322,23 @@ nav a:hover {
     flex-direction: column;
   }
 }
+.home-hero {
+  position: relative;
+  isolation: isolate;
+  background: #3b2925;
+}
+
+.home-bg-image {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.home-card {
+  position: relative;
+  z-index: 1;
+}

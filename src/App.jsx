@@ -155,6 +155,7 @@ const copyDiscord = async () => {
 
       <main>
 <section className="home-hero" id="home">
+  <img className="home-bg-image" src="/about-bg.jpg" alt="" aria-hidden="true" />
   <div className="home-card">
     <div className="home-card-topline">
       <p className="eyebrow">Computer Science student</p>
