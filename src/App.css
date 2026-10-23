@@ -112,6 +112,7 @@ nav a:hover {
   border-top: 8px solid var(--blush);
 }
 
+.intro,
 .home-hero {
   position: relative;
   z-index: 3;
