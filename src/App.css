@@ -306,7 +306,7 @@ nav a:hover {
   .home-hero {
     min-height: auto;
     padding: 34px 18px 80px;
-    background-size: 150px 120px;
+    background-size: cover;
   }
 
   .home-card {
