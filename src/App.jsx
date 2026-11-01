@@ -4,8 +4,21 @@ import { FaDiscord, FaGithub, FaLinkedin } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 
 const projects = [
-  {
+    {
     id: "001",
+    title: "PHANTOM: The Last Ritual",
+    program: "MarinaHacks 6.0",
+    type: "3D Horror Game",
+    role: "Solo Developer",
+    status: "BEST ENTERTAINMENT WINNER",
+    github: "https://github.com/warissah/marinahacks-6.0",
+    demo: "https://marinahacks-6-0.vercel.app/",
+    stack: ["React", "TypeScript", "Three.js", "React Three Fiber", "Socket.IO", "Node.js"],
+    description:
+      "An award-winning 3D horror game where players explore a haunted mansion using their smartphones as motion-sensing controllers. I built the 3D environment through code, implemented ghost AI, collision detection, and interactive gameplay, and connected the phone and laptop in real time using Socket.IO. Won Best Entertainment at MarinaHacks 6.0.",
+  },
+  {
+    id: "002",
     title: "Student Mart",
     program: "Starbound Program",
     type: "CSULB Community Marketplace",
@@ -17,7 +30,7 @@ const projects = [
       "A full-stack marketplace platform built for the CSULB community where students can safely buy, sell, and exchange items. I contributed to frontend development, UI components, listing features, and user-centered design.",
   },
   {
-    id: "002",
+    id: "003",
     title: "TranSLAYYYtor",
     program: "MarinaHacks 5.0",
     type: "AI Slang Translator",
@@ -29,7 +42,7 @@ const projects = [
       "A Gen Z slang translator that converts everyday English into modern slang and vice versa. I built the Flask backend, integrated OpenAI API translations, added speech-to-text and text-to-speech, and styled the frontend.",
   },
   {
-    id: "003",
+    id: "004",
     title: "TinyTasks",
     program: "BeachHacks 9.0",
     type: "AI Productivity Assistant",
@@ -41,7 +54,7 @@ const projects = [
       "An AI-powered assistant that helps users overcome procrastination by breaking overwhelming goals into tiny, actionable steps with motivational support and WhatsApp-based interaction.",
   },
   {
-    id: "004",
+    id: "005",
     title: "Guilds",
     program: "STEM Connect Hackathon",
     type: "Social Hobby Platform",
@@ -53,7 +66,7 @@ const projects = [
       "A full-stack web app where users create and join communities called Guilds based on shared hobbies and interests. I focused on UI design and frontend-to-backend interactions.",
   },
   {
-    id: "005",
+    id: "006",
     title: "Success Pipeline",
     program: "Sisterhood Program",
     type: "ML + Data Engineering",
