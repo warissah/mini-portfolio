@@ -478,7 +478,7 @@ nav a:hover {
   max-width: 78%;
   padding: 9px 15px;
   transform: translate(-50%, -50%);
-  border: 2px solid #a7c594b5;
+  border: 2px solid #51373a;
   border-radius: 5px;
   background: var(--cream);
   color: var(--brown);
@@ -1342,4 +1342,349 @@ nav a:hover {
 .home-card {
   position: relative;
   z-index: 1;
+}
+
+
+/* Projects */
+
+./* Projects */
+
+.projects {
+  position: relative;
+  z-index: 1;
+  display: block;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: 128px max(6vw, 24px) 80px;
+  background: rgb(255, 240, 242);
+}
+
+.projects h2 {
+  margin-bottom: 14px;
+  color: var(--brown);
+  font-size: clamp(48px, 8vw, 86px);
+  letter-spacing: -0.07em;
+  line-height: 0.95;
+}
+
+.title-period {
+  color: var(--mauve);
+}
+
+.projects-intro {
+  margin: 0;
+  color: var(--muted-ink);
+}
+
+.project-gallery {
+  display: grid;
+  width: min(100%, 1100px);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin: 42px auto 0;
+}
+
+.project-tile {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  min-height: 275px;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 24px;
+  overflow: hidden;
+  border: 1px solid #9b7f8845;
+  border-radius: 20px;
+  background: var(--cream);
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+  box-shadow: 0 8px 20px #30272a0b;
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.project-tile::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 5px;
+  background: linear-gradient(90deg, var(--rose), var(--mauve));
+  content: "";
+}
+
+.project-tile:nth-child(even) {
+  background: #fff4f2;
+}
+
+.project-tile:hover {
+  transform: translateY(-5px);
+  border-color: var(--rose);
+  box-shadow: 0 16px 30px #5b424a1c;
+}
+
+.project-tile:focus-visible {
+  outline: 3px solid var(--mauve);
+  outline-offset: 4px;
+}
+
+.project-tile-top {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 26px;
+}
+
+.project-number {
+  color: var(--mauve);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.project-status {
+  max-width: 70%;
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: #f7c7d080;
+  color: var(--brown);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-align: center;
+}
+
+.project-tile h3 {
+  margin: 0 0 10px;
+  color: var(--brown);
+  font-size: clamp(21px, 3vw, 28px);
+  letter-spacing: -0.04em;
+}
+
+.project-tile-description {
+  display: -webkit-box;
+  margin: 0 0 18px;
+  overflow: hidden;
+  color: #725c64;
+  font-size: 13px;
+  line-height: 1.65;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.project-tile-stack,
+.project-modal-stack > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.project-tile-stack span,
+.project-modal-stack > div span {
+  padding: 6px 9px;
+  border: 1px solid #9b7f8830;
+  border-radius: 8px;
+  background: var(--peach);
+  color: var(--brown);
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.project-tile-link {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 20px;
+  color: var(--mauve);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.project-tile-link span {
+  font-size: 16px;
+}
+
+/* Project details modal */
+
+.project-modal-backdrop {
+  position: fixed;
+  z-index: 9999;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: #30272acc;
+  backdrop-filter: blur(6px);
+}
+
+.project-modal {
+  width: min(100%, 680px);
+  max-height: 90svh;
+  overflow: auto;
+  border: 1px solid #9b7f8845;
+  border-radius: 22px;
+  background: var(--brown);
+  color: var(--cream);
+  box-shadow: 0 24px 80px #21171b77;
+  animation: project-modal-in 180ms ease-out;
+}
+
+@keyframes project-modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.project-modal-top {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 22px;
+  background: var(--blush);
+  color: var(--brown);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.project-modal-close {
+  border: 0;
+  background: transparent;
+  color: var(--brown);
+  font-size: 27px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.project-modal-close:focus-visible {
+  outline: 2px solid var(--brown);
+  outline-offset: 3px;
+}
+
+.project-modal-body {
+  padding: clamp(24px, 6vw, 42px);
+}
+
+.project-modal-program,
+.project-modal-details span,
+.project-modal-description > span,
+.project-modal-stack > span {
+  color: var(--rose);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.project-modal-program {
+  margin-bottom: 8px;
+}
+
+.project-modal-body h3 {
+  margin: 0 0 5px;
+  color: var(--cream);
+  font-size: clamp(30px, 6vw, 46px);
+  letter-spacing: -0.05em;
+}
+
+.project-modal-type {
+  margin-bottom: 26px;
+  color: #fff9f6c9;
+}
+
+.project-modal-details {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.project-modal-details > div {
+  min-width: 0;
+  padding: 15px;
+  border: 1px solid #fff9f62b;
+  border-radius: 12px;
+  background: #fff9f610;
+}
+
+.project-modal-details p {
+  margin: 7px 0 0;
+  color: var(--cream);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.project-modal-description {
+  padding: 20px 0;
+  border-top: 1px solid #fff9f633;
+  border-bottom: 1px solid #fff9f633;
+}
+
+.project-modal-description p {
+  margin: 9px 0 0;
+  color: #fff9f6e0;
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.project-modal-stack {
+  margin-top: 22px;
+}
+
+.project-modal-stack > div {
+  margin-top: 10px;
+}
+
+.project-modal-github {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 26px;
+  padding: 12px 16px;
+  border-radius: 999px;
+  background: var(--rose);
+  color: var(--brown);
+  font-size: 13px;
+  font-weight: 700;
+  transition: background 160ms ease, transform 160ms ease;
+}
+
+.project-modal-github:hover {
+  transform: translateY(-2px);
+  background: var(--blush);
+}
+
+@media (max-width: 650px) {
+  .projects {
+    padding: 112px 20px 70px;
+  }
+
+  .project-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .project-tile {
+    min-height: 250px;
+  }
+
+  .project-modal-backdrop {
+    padding: 14px;
+  }
+
+  .project-modal-details {
+    grid-template-columns: 1fr;
+  }
 }

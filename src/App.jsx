@@ -248,22 +248,37 @@ const copyDiscord = async () => {
 
   <section id="projects" className="section projects">
   <div className="content">
-    <p className="eyebrow">A few things I’ve made</p>
-    <h2>
-      Project<span className="title-period">.</span>
-    </h2>
-    <p className="projects-intro">Choose a folder to open its project file.</p>
+    <p className="eyebrow">A few things I’ve been building</p>
+    <h2>Selected projects<span className="title-period">.</span></h2>
+    <p className="projects-intro">Pick a card to see what went into it.</p>
 
-    <div className="project-folder-grid">
-      {projects.map((project) => (
+    <div className="project-gallery">
+      {projects.map((project, index) => (
         <button
-          className="project-folder"
+          className="project-tile"
           key={project.id}
+          type="button"
           onClick={() => setActiveProject(project)}
-          aria-label={`Open ${project.title} project file`}
+          aria-label={`Read about ${project.title}`}
         >
-          <img src="/fold3.png" alt="" />
-          <span className="project-folder-label">{project.title}</span>
+          <div className="project-tile-top">
+            <span className="project-number">0{index + 1}</span>
+            <span className="project-status">{project.status}</span>
+          </div>
+
+          <h3>{project.title}</h3>
+          <p className="project-tile-description">{project.description}</p>
+
+          <div className="project-tile-stack">
+            {project.stack.slice(0, 3).map((tech) => (
+              <span key={tech}>{tech}</span>
+            ))}
+            {project.stack.length > 3 && (
+              <span>+{project.stack.length - 3}</span>
+            )}
+          </div>
+
+          <span className="project-tile-link">OPEN PROJECT <span>↗</span></span>
         </button>
       ))}
     </div>
@@ -271,59 +286,52 @@ const copyDiscord = async () => {
 
   {activeProject && (
     <div
-      className="project-file-backdrop"
+      className="project-modal-backdrop"
       onClick={() => setActiveProject(null)}
     >
       <article
-        className="project-file"
+        className="project-modal"
         role="dialog"
         aria-modal="true"
-        aria-labelledby="project-file-title"
+        aria-labelledby="project-modal-title"
         onClick={(event) => event.stopPropagation()}
       >
-        <div className="project-file-bar">
-          <span className="file-name">
-            {activeProject.title.toLowerCase().replaceAll(" ", "-")}.txt
-          </span>
+        <div className="project-modal-top">
+          <span>PROJECT NOTES · {activeProject.id}</span>
           <button
-            className="project-file-close"
+            type="button"
+            className="project-modal-close"
             onClick={() => setActiveProject(null)}
-            aria-label="Close project file"
+            aria-label="Close project details"
           >
             ×
           </button>
         </div>
 
-        <div className="project-file-content">
-          <div className="file-heading">
-            <p className="file-overline">PROJECT {activeProject.id}</p>
-            <h3 id="project-file-title">{activeProject.title}</h3>
-            <span className="file-status">{activeProject.status}</span>
-          </div>
+        <div className="project-modal-body">
+          <p className="project-modal-program">{activeProject.program}</p>
+          <h3 id="project-modal-title">{activeProject.title}</h3>
+          <p className="project-modal-type">{activeProject.type}</p>
 
-          <div className="project-file-meta">
-            <div className="file-meta-card">
-              <span>Program</span>
-              <p>{activeProject.program}</p>
-            </div>
-            <div className="file-meta-card">
-              <span>Project type</span>
-              <p>{activeProject.type}</p>
-            </div>
-            <div className="file-meta-card">
-              <span>My role</span>
+          <div className="project-modal-details">
+            <div>
+              <span>MY ROLE</span>
               <p>{activeProject.role}</p>
             </div>
+            <div>
+              <span>PROJECT</span>
+              <p>{activeProject.status}</p>
+            </div>
           </div>
 
-          <div className="file-description-block">
-            <p className="file-section-label">About the project</p>
-            <p className="file-description">{activeProject.description}</p>
+          <div className="project-modal-description">
+            <span>THE IDEA</span>
+            <p>{activeProject.description}</p>
           </div>
 
-          <div className="file-stack-section">
-            <p className="file-section-label">Tech stack</p>
-            <div className="file-stack">
+          <div className="project-modal-stack">
+            <span>MADE WITH</span>
+            <div>
               {activeProject.stack.map((tech) => (
                 <span key={tech}>{tech}</span>
               ))}
@@ -331,12 +339,12 @@ const copyDiscord = async () => {
           </div>
 
           <a
-            className="file-github-link"
+            className="project-modal-github"
             href={activeProject.github}
             target="_blank"
             rel="noreferrer"
           >
-            View GitHub repository <span aria-hidden="true">↗</span>
+            View the GitHub repository 
           </a>
         </div>
       </article>
